@@ -1,21 +1,25 @@
 version: "3.9"
 services:
-#   php-linux:
-#    build: ./php_apache/
-#    ports:
-#      - "8080:8080" # SYMFONY
-#      - "8090:8090" # LARAVEL
-#      - "8100:8100" # ZEND
-#    links:
-#      - "mysql-database:database"
-#      - "mailcatcher:mailer"
-#    volumes:
-#      - ../PHP/SYMFONY:/var/www/html/symfony
-#      - ../PHP/LARAVEL:/var/www/html/laravel
+  php-linux:
+    build: ./php_apache/
+    ports:
+      - "8080:8080" # SYMFONY
+      - "8090:8090" # LARAVEL
+      - "8100:8100" # LAMINAS/ZEND
+    links:
+      - "mysql-database:database"
+      - "mailcatcher:mailer"
+    volumes:
+      - ../PHP/SYMFONY/:/var/www/html/symfony
+      - ../PHP/LARAVEL/:/var/www/html/laravel
+      - ../PHP/LAMINAS/:/var/www/html/laminas
 #  java-linux:
 #    build: ./java/
 #    ports:
 #      - "7777:80"
+#    links:
+#      - "mysql-database:database"
+#      - "mailcatcher:mailer"
 #    volumes:
 #      - ../JAVA/:/var/www/html
   nodejs-all:
@@ -25,6 +29,9 @@ services:
       - "9091:9091" # ANGULARJS the first version
       - "9092:9092" # ANGULAR 16+
       - "9093:9093" # VUEJS
+    links:
+      - "mysql-database:database"
+      - "mailcatcher:mailer"
     volumes:
       - ../NODE_JS/EXPRESS/:/var/www/html/express
       - ../NODE_JS/ANGULAR/:/var/www/html/angular
@@ -32,6 +39,9 @@ services:
       - ../NODE_JS/VUE_JS/:/var/www/html/vue_js
 #  cpp-linux:
 #    build: ./cpp/
+#    links:
+#      - "mysql-database:database"
+#      - "mailcatcher:mailer"
   mysql-database:
     image: mysql
     ports:
