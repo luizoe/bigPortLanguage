@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+PYTHON/.idea/.gitignore
+PYTHON/.idea/misc.xml
+PYTHON/.idea/modules.xml
+PYTHON/.idea/PYTHON.iml
+PYTHON/.idea/vcs.xml
+PYTHON/.idea/inspectionProfiles/profiles_settings.xml
